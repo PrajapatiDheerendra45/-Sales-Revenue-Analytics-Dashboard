@@ -58,7 +58,7 @@ A comprehensive full-stack analytics dashboard for sales and revenue data visual
 
 3. **Configure MongoDB**
    - Start MongoDB service
-   - Update `backend/config.env` with your MongoDB connection string:
+   - Update `backend/.env` with your MongoDB connection string:
      ```
      MONGODB_URI=mongodb://localhost:27017/sales_analytics
      ```
