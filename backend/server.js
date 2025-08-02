@@ -4,20 +4,14 @@ const cors = require('cors');
 const helmet = require('helmet');
 const morgan = require('morgan');
 const path = require('path');
+require('dotenv').config({ path: './config.env' });
 
-// require('dotenv').config({ path: './config.env' });
-require('dotenv').config();
 const salesRoutes = require('./routes/sales');
 const uploadRoutes = require('./routes/upload');
 
 const app = express();
 const PORT = process.env.PORT || 5001;
-// Serve static files from the build folder
-app.use(express.static(path.join(__dirname, '/frontend/build')));
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '/frontend/build/index.html'));
-});
 // Middleware
 app.use(helmet());
 app.use(morgan('combined'));
@@ -29,9 +23,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/api/sales', salesRoutes);
 app.use('/api/upload', uploadRoutes);
 
-// Health check endpoint
-app.get('/api/health', (req, res) => {
-  res.json({ status: 'OK', message: 'Sales Analytics API is running' });
+// Serve frontend build
+app.use(express.static(path.join(__dirname, '../frontend/build')));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../frontend/build', 'index.html'));
 });
 
 // Error handling middleware
@@ -59,4 +55,4 @@ mongoose.connect(process.env.MONGO_URI)
   .catch((err) => {
     console.error('MongoDB connection error:', err);
     process.exit(1);
-  }); 
+  });
