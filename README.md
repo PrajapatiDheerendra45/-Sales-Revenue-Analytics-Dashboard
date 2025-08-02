@@ -38,7 +38,7 @@ A comprehensive full-stack analytics dashboard for sales and revenue data visual
 
 1. **Clone the repository**
    ```bash
-   git clone <repository-url>
+   git clone <https://github.com/PrajapatiDheerendra45/-Sales-Revenue-Analytics-Dashboard.git>
    cd sales-analytics-dashboard
    ```
 
