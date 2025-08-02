@@ -27,8 +27,8 @@ pids
 Thumbs.db
 
 # Optional: Build folders (if you're using build tools like TypeScript or React)
-dist/
-build/
+# dist/
+# build/
 
 # Optional: Coverage reports
 coverage/

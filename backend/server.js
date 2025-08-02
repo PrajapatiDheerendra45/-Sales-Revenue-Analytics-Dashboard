@@ -3,6 +3,8 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const helmet = require('helmet');
 const morgan = require('morgan');
+const path = require('path');
+
 // require('dotenv').config({ path: './config.env' });
 require('dotenv').config();
 const salesRoutes = require('./routes/sales');
@@ -10,7 +12,13 @@ const uploadRoutes = require('./routes/upload');
 
 const app = express();
 const PORT = process.env.PORT || 5001;
+// Serve static files from the build folder
+app.use(express.static(path.join(__dirname, 'build')));
 
+// Catch-all handler to serve React's index.html for any route
+app.get('*', function (req, res) {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
 // Middleware
 app.use(helmet());
 app.use(morgan('combined'));
