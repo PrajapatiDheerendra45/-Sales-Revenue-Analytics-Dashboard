@@ -8,7 +8,7 @@ export const uploadFile = createAsyncThunk(
       const formData = new FormData();
       formData.append('file', file);
 
-      const response = await axios.post('https://sales-revenue-analytics-dashboard.onrender.com/api/upload/file', formData, {
+      const response = await axios.post('/api/upload/file', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },

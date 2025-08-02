@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const API_BASE_URL = 'https://sales-revenue-analytics-dashboard.onrender.com/api/sales';
+const API_BASE_URL = '/api/sales';
 
 // Async thunks
 export const fetchSummary = createAsyncThunk(
