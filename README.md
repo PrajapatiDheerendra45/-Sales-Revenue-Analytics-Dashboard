@@ -136,7 +136,7 @@ sales-analytics-dashboard/
 │   ├── routes/
 │   │   ├── sales.js
 │   │   └── upload.js
-│   ├── config.env
+│   ├── .env
 │   ├── package.json
 │   └── server.js
 ├── frontend/
